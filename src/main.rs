@@ -15,20 +15,20 @@ fn main() {
     println!("hello, {:?} ?", "testing");
 
     // change a mutable boolean
-    let mut test_bool: bool = true;
-    test_bool = false;
+    let mut _test_bool: bool = true;
+    _test_bool = false;
 
     // suffix annotation
-    let test_float = 0.32f32;
+    let _test_float = 0.32f32;
     // default annotation
-    let test_float_two: f64 = 0.64;
+    let _test_float_two: f64 = 0.64;
 
-    let mut my_list: Vec<i32> = vec![23, 65, 34, 88, 75, 9, 12];
-    for i in my_list {
+    let mut _my_list: Vec<i32> = vec![23, 65, 34, 88, 75, 9, 12];
+    for i in _my_list {
         println!("{:?}", i);
     }
 
     //my_list.push(91);
 
-    let test_list: Vec<i32> = Vec::with_capacity(11);
+    let _test_list: Vec<i32> = Vec::with_capacity(11);
 }
