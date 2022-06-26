@@ -1,3 +1,5 @@
+mod test;
+
 /// this is a test macro
 macro_rules! test_macro {
     () => {
@@ -6,6 +8,9 @@ macro_rules! test_macro {
 }
 
 fn main() {
+    // use test module
+    test::test();
+
     println!("Hello World!");
 
     // testing a macro
