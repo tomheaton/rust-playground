@@ -1,5 +1,9 @@
+#![allow(dead_code)]
+#![allow(unused_macros)]
+
 mod test;
 mod fizzbuzz;
+// use fizzbuzz::fizzbuzz_to;
 
 /// this is a test macro
 macro_rules! test_macro {
@@ -8,36 +12,30 @@ macro_rules! test_macro {
     };
 }
 
+#[derive(Debug)]
+/// person struct
+struct Person {
+    name: String,
+    age: u8,
+}
+
 fn main() {
-    // use test module
-    test::test_print();
-
-    // fizzbuzz
-    fizzbuzz::fizzbuzz_to(100);
-
     println!("Hello World!");
 
+    // use test module
+    // test::test_print();
+    // test::test_types();
+
+    // fizzbuzz
+    // fizzbuzz::fizzbuzz_to(100);
+
     // testing a macro
-    test_macro!();
+    // test_macro!();
 
-    // debug format?
-    println!("hello, {:?} ?", "testing");
+    let name = String::from("tom");
+    let age = 19;
+    let person = Person { name, age };
 
-    // change a mutable boolean
-    let mut _test_bool: bool = true;
-    _test_bool = false;
-
-    // suffix annotation
-    let _test_float = 0.32f32;
-    // default annotation
-    let _test_float_two: f64 = 0.64;
-
-    let mut _my_list: Vec<i32> = vec![23, 65, 34, 88, 75, 9, 12];
-    for i in _my_list {
-        println!("{:?}", i);
-    }
-
-    //my_list.push(91);
-
-    let _test_list: Vec<i32> = Vec::with_capacity(11);
+    // `:?` needed to debug print struct
+    println!("{:?}", person);
 }
