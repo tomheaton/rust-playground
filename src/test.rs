@@ -1,4 +1,4 @@
 /// test print function
-pub fn test() {
+pub fn test_print() {
     println!("test print");
 }

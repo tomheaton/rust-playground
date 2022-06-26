@@ -1,4 +1,5 @@
 mod test;
+mod fizzbuzz;
 
 /// this is a test macro
 macro_rules! test_macro {
@@ -9,7 +10,10 @@ macro_rules! test_macro {
 
 fn main() {
     // use test module
-    test::test();
+    test::test_print();
+
+    // fizzbuzz
+    fizzbuzz::fizzbuzz_to(100);
 
     println!("Hello World!");
 
