@@ -12,6 +12,7 @@ struct Cli {
     path: std::path::PathBuf,
 }
 
+// cargo run -- main src/main.rs
 fn main() {
     let args = Cli::parse();
 
