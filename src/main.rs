@@ -1,41 +1,26 @@
-#![allow(dead_code)]
-#![allow(unused_macros)]
+#![allow(unused)]
 
-mod test;
-mod fizzbuzz;
-// use fizzbuzz::fizzbuzz_to;
+use clap::Parser;
 
-/// this is a test macro
-macro_rules! test_macro {
-    () => {
-        println!("test macro");
-    };
-}
-
-#[derive(Debug)]
-/// person struct
-struct Person {
-    name: String,
-    age: u8,
+/// Search for a pattern in a file and display the lines that contain it.
+#[derive(Parser)]
+struct Cli {
+    /// The pattern to look for
+    pattern: String,
+    /// The path to the file to read
+    #[clap(parse(from_os_str))]
+    path: std::path::PathBuf,
 }
 
 fn main() {
-    println!("Hello World!");
+    let args = Cli::parse();
 
-    // use test module
-    // test::test_print();
-    // test::test_types();
+    let content = std::fs::read_to_string(&args.path)
+        .expect("could not read file");
 
-    // fizzbuzz
-    // fizzbuzz::fizzbuzz_to(100);
-
-    // testing a macro
-    // test_macro!();
-
-    let name = String::from("tom");
-    let age = 19;
-    let person = Person { name, age };
-
-    // `:?` needed to debug print struct
-    println!("{:?}", person);
+    for line in content.lines() {
+        if line.contains(&args.pattern) {
+            println!("{}", line);
+        }
+    }
 }
